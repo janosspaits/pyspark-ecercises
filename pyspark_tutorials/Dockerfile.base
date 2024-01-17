@@ -1,0 +1,22 @@
+FROM python:3.7
+
+# Install default Java Runtime Environment (headless, no GUI)
+RUN apt-get update && \
+    apt-get install -y default-jre-headless && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Optionally, set JAVA_HOME -- it may not be necessary as the `default-jre-headless` package should configure it
+# ENV JAVA_HOME /usr/lib/jvm/default-java
+
+# Set the working directory in the container
+WORKDIR /app
+
+# At this point, you could copy over any files that should be in every project using this base image
+# For example, if you have a common `requirements.txt`:
+# COPY common-requirements.txt /app/
+
+# And install any Python packages that should be in every project
+# RUN pip install --no-cache-dir -r common-requirements.txt
+
+# However, typically you'd leave project-specific `COPY` and `RUN pip install` steps for the individual project's Dockerfile

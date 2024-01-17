@@ -1,0 +1,8 @@
+{
+    "name": "My Python-Java Project",
+    "image": "my-pyspark-project:latest",
+    "settings": { 
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": ["ms-python.python"]
+}
